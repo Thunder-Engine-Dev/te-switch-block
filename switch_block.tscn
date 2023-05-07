@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgia8od6trku1"]
+
+[ext_resource type="Script" path="res://modules/switch_block/switch_block.gd" id="1_52y52"]
+[ext_resource type="Texture2D" uid="uid://1o1fh4ejfw6o" path="res://modules/switch_block/textures/Switch.png" id="1_ukd83"]
+[ext_resource type="Shader" path="res://modules/switch_block/shaders/hsv.gdshader" id="2_b8ml7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imy6f"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjhwg"]
+shader = ExtResource("2_b8ml7")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 0.0
+shader_parameter/value = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tow7s"]
+atlas = ExtResource("1_ukd83")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qqiy"]
+atlas = ExtResource("1_ukd83")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vth6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tow7s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qqiy")
+}],
+"loop": true,
+"name": &"disabled",
+"speed": 5.0
+}]
+
+[node name="SwitchBlock" type="AnimatableBody2D"]
+collision_layer = 112
+collision_mask = 0
+script = ExtResource("1_52y52")
+on = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_imy6f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cjhwg")
+sprite_frames = SubResource("SpriteFrames_vth6b")
+autoplay = "default"
