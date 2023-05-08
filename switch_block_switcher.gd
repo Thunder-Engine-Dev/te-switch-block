@@ -14,7 +14,7 @@ extends StaticBumpingBlock
 
 
 func _physics_process(_delta) -> void:
-	if !Engine.is_editor_hint(): return
+	if Engine.is_editor_hint(): return
 	super(_delta)
 	
 	if _triggered: return

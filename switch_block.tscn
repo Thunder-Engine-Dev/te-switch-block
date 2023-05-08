@@ -2,14 +2,17 @@
 
 [ext_resource type="Script" path="res://modules/switch-block/switch_block.gd" id="1_jveyv"]
 [ext_resource type="Texture2D" uid="uid://1o1fh4ejfw6o" path="res://modules/switch-block/textures/Switch.png" id="1_ukd83"]
-[ext_resource type="Shader" path="res://modules/switch_block/shaders/hsv.gdshader" id="2_b8ml7"]
+[ext_resource type="Shader" path="res://modules/switch-block/shaders/hsv.gdshader" id="2_ditt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imy6f"]
 size = Vector2(32, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjhwg"]
-render_priority = 0
-shader = ExtResource("2_b8ml7")
+resource_local_to_scene = true
+shader = ExtResource("2_ditt8")
+shader_parameter/hue = 0.0
+shader_parameter/saturation = 0.0
+shader_parameter/value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tow7s"]
 atlas = ExtResource("1_ukd83")
@@ -51,6 +54,7 @@ shape = SubResource("RectangleShape2D_imy6f")
 material = SubResource("ShaderMaterial_cjhwg")
 sprite_frames = SubResource("SpriteFrames_vth6b")
 autoplay = "default"
+frame_progress = 0.874747
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 modulate = Color(1, 1, 1, 0.0196078)
