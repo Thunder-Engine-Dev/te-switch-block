@@ -7,10 +7,11 @@ extends StaticBumpingBlock
 	set(to):
 		id = to
 		if Engine.is_editor_hint() || (!Engine.is_editor_hint() && _is_ready):
-			shader.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
+			$AnimatedSprite2D.material.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
 
 @onready var _is_ready: bool = true
-@onready var shader: ShaderMaterial = $AnimatedSprite2D.material
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var shader: ShaderMaterial = sprite.material
 
 
 func _physics_process(_delta) -> void:

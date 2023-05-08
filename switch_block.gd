@@ -6,7 +6,7 @@ extends AnimatableBody2D
 	set(to):
 		id = to
 		if Engine.is_editor_hint() || (!Engine.is_editor_hint() && _is_ready):
-			shader.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
+			$AnimatedSprite2D.material.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
 @export var off: bool:
 	set(to):
 		off = to
@@ -21,13 +21,14 @@ extends AnimatableBody2D
 
 func _ready() -> void:
 	_status()
+	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate(true)
 	if Engine.is_editor_hint(): return
 	add_to_group("switch_" + str(id))
 
 
 func _status() -> void:
 	if !Engine.is_editor_hint() && !_is_ready: return
-	sprite.play(&"default" if !off else &"disabled")
+	$AnimatedSprite2D.play(&"default" if !off else &"disabled")
 	if !Engine.is_editor_hint(): collision_shape.set_deferred(&"disabled", off)
 
 
