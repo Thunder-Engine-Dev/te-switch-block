@@ -1,17 +1,15 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgia8od6trku1"]
 
-[ext_resource type="Script" path="res://modules/switch_block/switch_block.gd" id="1_52y52"]
-[ext_resource type="Texture2D" uid="uid://1o1fh4ejfw6o" path="res://modules/switch_block/textures/Switch.png" id="1_ukd83"]
+[ext_resource type="Script" path="res://modules/switch-block/switch_block.gd" id="1_jveyv"]
+[ext_resource type="Texture2D" uid="uid://1o1fh4ejfw6o" path="res://modules/switch-block/textures/Switch.png" id="1_ukd83"]
 [ext_resource type="Shader" path="res://modules/switch_block/shaders/hsv.gdshader" id="2_b8ml7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imy6f"]
 size = Vector2(32, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cjhwg"]
+render_priority = 0
 shader = ExtResource("2_b8ml7")
-shader_parameter/hue = 0.0
-shader_parameter/saturation = 0.0
-shader_parameter/value = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tow7s"]
 atlas = ExtResource("1_ukd83")
@@ -43,8 +41,7 @@ animations = [{
 [node name="SwitchBlock" type="AnimatableBody2D"]
 collision_layer = 112
 collision_mask = 0
-script = ExtResource("1_52y52")
-on = false
+script = ExtResource("1_jveyv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -54,3 +51,9 @@ shape = SubResource("RectangleShape2D_imy6f")
 material = SubResource("ShaderMaterial_cjhwg")
 sprite_frames = SubResource("SpriteFrames_vth6b")
 autoplay = "default"
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+modulate = Color(1, 1, 1, 0.0196078)
+position = Vector2(1.43051e-06, 1.43051e-06)
+scale = Vector2(1.6, 1.6)
+metadata/_edit_lock_ = true
