@@ -21,9 +21,9 @@ extends AnimatableBody2D
 
 func _ready() -> void:
 	_status()
-	$AnimatedSprite2D.material = $AnimatedSprite2D.material.duplicate(true)
 	if Engine.is_editor_hint(): return
 	add_to_group("switch_" + str(id))
+	shader.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
 
 
 func _status() -> void:

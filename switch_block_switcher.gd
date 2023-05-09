@@ -14,6 +14,10 @@ extends StaticBumpingBlock
 @onready var shader: ShaderMaterial = sprite.material
 
 
+func _ready() -> void:
+	shader.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
+
+
 func _physics_process(_delta) -> void:
 	if Engine.is_editor_hint(): return
 	super(_delta)
