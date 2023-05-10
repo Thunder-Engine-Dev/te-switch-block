@@ -21,11 +21,10 @@ func _ready() -> void:
 func _physics_process(_delta) -> void:
 	if Engine.is_editor_hint(): return
 	super(_delta)
-	
+
+
+func got_bumped(by: Node2D) -> void:
 	if _triggered: return
-	
-	var player = Thunder._current_player
-	if is_player_colliding(cast_below) && player.speed.y <= 50 && !player.is_on_floor():
-		bump(false)
-		for i in get_tree().get_nodes_in_group("switch_" + str(id)):
-			if i.has_method(&"switch"): i.switch()
+	bump(false)
+	for i in get_tree().get_nodes_in_group("switch_" + str(id)):
+		if i.has_method(&"switch"): i.switch()
