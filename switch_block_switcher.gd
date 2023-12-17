@@ -7,10 +7,10 @@ extends StaticBumpingBlock
 	set(to):
 		id = to
 		if Engine.is_editor_hint() || (!Engine.is_editor_hint() && _is_ready):
-			$AnimatedSprite2D.material.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
+			$Sprites/AnimatedSprite2D.material.set_shader_parameter(&"hue", wrapf(float(id) * 0.02, -1, 1))
 
 @onready var _is_ready: bool = true
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $Sprites/AnimatedSprite2D
 @onready var shader: ShaderMaterial = sprite.material
 
 

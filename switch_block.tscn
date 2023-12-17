@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgia8od6trku1"]
+[gd_scene load_steps=9 format=3 uid="uid://bl6y0yhdvjrab"]
 
 [ext_resource type="Script" path="res://modules/switch-block/switch_block.gd" id="1_jveyv"]
 [ext_resource type="Texture2D" uid="uid://1o1fh4ejfw6o" path="res://modules/switch-block/textures/Switch.png" id="1_ukd83"]
@@ -50,10 +50,13 @@ script = ExtResource("1_jveyv")
 visible = false
 shape = SubResource("RectangleShape2D_imy6f")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
 material = SubResource("ShaderMaterial_cjhwg")
 sprite_frames = SubResource("SpriteFrames_vth6b")
 autoplay = "default"
+frame_progress = 0.823776
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
 modulate = Color(1, 1, 1, 0.0196078)

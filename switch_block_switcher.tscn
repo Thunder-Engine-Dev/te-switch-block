@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cidf65864oxrd"]
+[gd_scene load_steps=12 format=3 uid="uid://bqgumcf8nm07n"]
 
 [ext_resource type="Script" path="res://modules/switch-block/switch_block_switcher.gd" id="1_hwcis"]
 [ext_resource type="Shader" path="res://modules/switch-block/shaders/hsv.gdshader" id="2_4q53y"]
@@ -47,19 +47,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bv14a"]
 size = Vector2(32, 1)
 
-[node name="SwitchBlockSwitcher" type="AnimatableBody2D" node_paths=PackedStringArray("cast_below")]
+[node name="SwitchBlockSwitcher" type="AnimatableBody2D"]
 collision_layer = 112
 collision_mask = 0
 script = ExtResource("1_hwcis")
 bump_sound = ExtResource("2_e1rd8")
-cast_below = NodePath("ShapeCast2D")
-metadata/_edit_pinned_properties_ = [&"cast_below"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_a6cq5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites"]
 material = SubResource("ShaderMaterial_uugjb")
 sprite_frames = SubResource("SpriteFrames_k5o07")
 autoplay = "default"
